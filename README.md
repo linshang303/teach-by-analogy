@@ -65,10 +65,17 @@
 ```bash
 mkdir -p ~/.dsh/skills/teach-by-analogy
 curl -o ~/.dsh/skills/teach-by-analogy/SKILL.md \
-  https://raw.githubusercontent.com/<your-name>/teach-by-analogy/main/SKILL.md
+  https://raw.githubusercontent.com/linshang303/teach-by-analogy/main/SKILL.md
 ```
 
-把 `<your-name>` 换成实际用户名。装完**刷新页面或新开会话**——`/` 菜单的技能目录是按会话缓存的，不刷新看不到新技能。（或者直接手打 `/teach-by-analogy` 发送，不用等菜单。）
+Windows 上用 `mkdir` 建目录会报参数错误，换成：
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.dsh\skills\teach-by-analogy"
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/linshang303/teach-by-analogy/main/SKILL.md -OutFile "$env:USERPROFILE\.dsh\skills\teach-by-analogy\SKILL.md"
+```
+
+装完**刷新页面或新开会话**——`/` 菜单的技能目录是按会话缓存的，不刷新看不到新技能。（或者直接手打 `/teach-by-analogy` 发送，不用等菜单。）
 
 ### Claude Code
 
